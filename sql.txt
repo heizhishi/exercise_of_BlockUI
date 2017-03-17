@@ -1,0 +1,30 @@
+--①创建location表
+create table locations(
+location_id int unsigned not null auto_increment primary key,
+city varchar(30) not null
+)engine=innodb auto_increment=1 default charset=utf8;
+--为location表插入数据
+insert into locations values(null,"北京"),(null,"上海"),(null,"广州"),(null,"深圳"),(null,"南昌"),(null,"杭州"),(null,"南京");
+insert into locations values(null,"上饶"),(null,"沙溪"),(null,"井冈山"),(null,"鱼民"),(null,"压水"),(null,"江苏"),(null,"进是");
+
+--②创建departments表
+create table departments(
+department_id int unsigned not null auto_increment primary key,
+department_name varchar(30),
+location_id int unsigned not null,
+constraint fk foreign key(location_id) references locations(location_id) 
+)engine=innodb auto_increment=1 default charset=utf8;
+--为departments表插入数据
+insert into departments values(null,"A部门",1),(null,"B部门",1),(null,"C部门",1),(null,"D部门",1),(null,"E部门",1),(null,"F部门",1);
+
+--③创建employee表
+create table employees(
+employee_id int  unsigned  not null auto_increment primary key,
+last_name varchar(20) not null,
+email varchar(20) not null,
+salary decimal(8,2),
+department_id int unsigned not null,
+constraint fk_dep foreign key(department_id) references departments(department_id)
+)engine=innodb auto_increment=1 default charset=utf8;
+--为employee表插入数据
+insert into employees values(null,"小张","xiaozhang@xx.xxx",1222.56,1),(null,"小张","xiaozhang@xx.xxx",1222.56,1),(null,"小红","xiaohong@xx.xxx",1687.36,1),(null,"小全","xiaoquan@xx.xxx",2432.47,1);

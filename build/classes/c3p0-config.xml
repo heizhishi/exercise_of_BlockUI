@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<named-config name="c3p0">
+
+
+
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///employee</property>
+		<property name="user"></property>
+		<property name="password"></property>
+		<property name="acquireIncrement">50</property>
+		<property name="initialPoolSize">100</property>
+		<property name="minPoolSize">50</property>
+		<property name="maxPoolSize">1000</property>
+		<property name="maxStatements">2</property>
+		<property name="maxStatementsPerConnection">5</property>
+	</named-config>
+</c3p0-config>
